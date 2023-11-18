@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MacrosActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lighter_gray"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/macros_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/macros_title"
+        android:textSize="@dimen/title_text_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/back_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/cipher_divider_line1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_line_height"
+        android:background="@color/lighter_gray"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macros_title_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/macro_processor_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:text="@string/macro_processor"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cipher_divider_line1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/macro_processor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_processor_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/macro_processor_input"
+            android:layout_width="@dimen/macro_processor_edit_text_width"
+            android:layout_height="wrap_content"
+            android:lines="12"
+            android:scrollbars="vertical"
+            android:gravity="top|start"
+            android:hint="@string/input_macro_hint"
+            android:textSize="@dimen/edit_text_size"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/lighter_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/macro_processor_buttons_layout"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/macro_processor_buttons_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/macro_processor_input"
+            app:layout_constraintEnd_toStartOf="@id/macro_processor_output">
+
+
+            <Button
+                android:id="@+id/encode_macro_button"
+                android:layout_width="@dimen/macro_processor_button_width"
+                android:layout_height="wrap_content"
+                android:tag="@string/encode"
+                android:text="@string/encode_with_macro"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size_small"
+                android:onClick="processMacroOnInput"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/decode_macro_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/decode_macro_button"
+                android:layout_width="@dimen/macro_processor_button_width"
+                android:layout_height="wrap_content"
+                android:tag="@string/decode"
+                android:text="@string/decode_with_macro"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size_small"
+                android:onClick="processMacroOnInput"
+                app:layout_constraintTop_toBottomOf="@id/encode_macro_button"
+                app:layout_constraintBottom_toTopOf="@id/swap_processor_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/swap_processor_button"
+                android:layout_width="@dimen/macro_processor_button_width"
+                android:layout_height="wrap_content"
+                android:tag="@string/swap"
+                android:text="@string/swap"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size_small"
+                android:onClick="swapInputOutput"
+                app:layout_constraintTop_toBottomOf="@id/decode_macro_button"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/macro_processor_output"
+            android:layout_width="@dimen/macro_processor_edit_text_width"
+            android:layout_height="wrap_content"
+            android:lines="12"
+            android:editable="false"
+            android:textIsSelectable="true"
+            android:scrollbars="vertical"
+            android:gravity="top|start"
+            android:hint="@string/output_macro_hint"
+            android:textSize="@dimen/edit_text_size"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/lighter_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/macro_processor_buttons_layout"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/cipher_divider_line2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_line_height"
+        android:background="@color/lighter_gray"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_processor_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/macro_editor_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:text="@string/macro_editor"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cipher_divider_line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/macro_creation_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacer_margin"
+        android:layout_marginRight="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_editor_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/create_macro_button"
+            android:layout_width="@dimen/macro_creation_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:text="@string/create_macro"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="createMacro"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/load_macro_button" />
+
+        <Button
+            android:id="@+id/load_macro_button"
+            android:layout_width="@dimen/macro_creation_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:text="@string/load_macro"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="loadMacro"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/create_macro_button"
+            app:layout_constraintEnd_toStartOf="@id/save_macro_button" />
+
+        <Button
+            android:id="@+id/save_macro_button"
+            android:layout_width="@dimen/macro_creation_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:text="@string/save_macro"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="saveMacro"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/load_macro_button"
+            app:layout_constraintEnd_toStartOf="@id/delete_macro_button" />
+
+        <Button
+            android:id="@+id/delete_macro_button"
+            android:layout_width="@dimen/macro_creation_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:text="@string/delete_macro"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="deleteMacro"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/save_macro_button"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/macro_name_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_creation_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/macro_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/macro_name"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/macro_name_input_field"
+            android:layout_width="@dimen/macro_name_edittext_width"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/macro_name_label"
+            android:hint="@string/macro_name_hint"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "
+            android:textSize="@dimen/options_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview_macro_viewer"
+        android:layout_width="@dimen/list_view_macro_size"
+        android:layout_height="@dimen/list_view_macro_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:choiceMode="singleChoice"
+        app:layout_constraintTop_toBottomOf="@id/macro_name_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/macro_options_layout"/>
+
+    <TextView
+        android:id="@+id/empty_listview_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_listview"
+        android:textSize="@dimen/options_text_size"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/listview_macro_viewer"
+        app:layout_constraintStart_toStartOf="@id/listview_macro_viewer"
+        app:layout_constraintEnd_toEndOf="@id/listview_macro_viewer" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/macro_options_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/list_view_macro_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_name_layout"
+        app:layout_constraintStart_toEndOf="@id/listview_macro_viewer"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/add_macro_button"
+            android:layout_width="@dimen/macro_options_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:tag="@string/add_macro_item"
+            android:text="@string/add_macro_item"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="manageMacroItem"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/delete_macro_item_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/delete_macro_item_button"
+            android:layout_width="@dimen/macro_options_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:tag="@string/delete_macro_item"
+            android:text="@string/delete_macro_item"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="manageMacroItem"
+            app:layout_constraintTop_toBottomOf="@id/add_macro_button"
+            app:layout_constraintBottom_toTopOf="@id/edit_macro_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/edit_macro_button"
+            android:layout_width="@dimen/macro_options_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:tag="@string/edit_macro_item"
+            android:text="@string/edit_macro_item"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="manageMacroItem"
+            app:layout_constraintTop_toBottomOf="@id/delete_macro_item_button"
+            app:layout_constraintBottom_toTopOf="@id/move_up_macro_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/move_up_macro_button"
+            android:layout_width="@dimen/macro_options_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:tag="@string/move_macro_item_up"
+            android:text="@string/move_macro_item_up"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="manageMacroItem"
+            app:layout_constraintTop_toBottomOf="@id/edit_macro_button"
+            app:layout_constraintBottom_toTopOf="@id/move_down_macro_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/move_down_macro_button"
+            android:layout_width="@dimen/macro_options_width"
+            android:layout_height="@dimen/macro_options_height"
+            android:tag="@string/move_macro_item_down"
+            android:text="@string/move_macro_item_down"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_text_size_small"
+            android:onClick="manageMacroItem"
+            app:layout_constraintTop_toBottomOf="@id/move_up_macro_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

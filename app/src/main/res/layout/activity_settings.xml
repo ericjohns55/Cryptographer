@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lighter_gray"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textSize="@dimen/title_text_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/back_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/macro_settings_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/settings_title_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/attributions_layout">
+
+        <TextView
+            android:id="@+id/macro_settings_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_macro_label"
+            android:textSize="@dimen/header_text_size"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacer_margin" />
+
+        <Button
+            android:id="@+id/delete_all_macros_button"
+            android:layout_width="@dimen/macro_settings_button_width"
+            android:layout_height="@dimen/macro_settings_button_height"
+            android:text="@string/delete_all_macros"
+            android:textSize="@dimen/button_text_size"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/spacer_margin"
+            android:onClick="deleteAllMacros"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/macro_settings_label" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/attributions_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/big_spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/macro_settings_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/attributions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/attributions"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/main_icon_attributions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/attributions_label"
+            android:text="@string/main_icon_credits"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/cipher_icon_attributions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/main_icon_attributions_label"
+            android:text="@string/cipher_icon_credits"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/image_processing_icon_attributions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/cipher_icon_attributions_label"
+            android:text="@string/image_processing_icon_credits"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/qr_codes_icon_attributions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/image_processing_icon_attributions_label"
+            android:text="@string/qr_icon_credits"
+            android:textSize="@dimen/label_text_size" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CipherInformationFragment">
+
+    <TextView
+        android:id="@+id/selector_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cipher_selection_message"
+        android:textSize="@dimen/options_text_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacer_margin" />
+
+    <include
+        layout="@layout/cipher_animation"
+        android:id="@+id/caesar_box"
+        android:layout_width="@dimen/cipher_preview_box_size"
+        android:layout_height="@dimen/cipher_preview_box_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/selector_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cipher_icon" />
+
+    <include
+        layout="@layout/cipher_animation"
+        android:id="@+id/substitution_box"
+        android:layout_width="@dimen/cipher_preview_box_size"
+        android:layout_height="@dimen/cipher_preview_box_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/selector_hint"
+        app:layout_constraintStart_toEndOf="@id/cipher_icon"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/cipher_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/selector_hint"
+        app:layout_constraintStart_toEndOf="@id/caesar_box"
+        app:layout_constraintEnd_toStartOf="@id/substitution_box"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cipher"
+        android:layout_marginTop="@dimen/cipher_preview_icon_offset"/>
+
+    <include
+        layout="@layout/cipher_animation"
+        android:id="@+id/vigenere_box"
+        android:layout_width="@dimen/cipher_preview_box_size"
+        android:layout_height="@dimen/cipher_preview_box_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/caesar_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cipher_icon" />
+
+    <include
+        layout="@layout/cipher_animation"
+        android:id="@+id/atbash_box"
+        android:layout_width="@dimen/cipher_preview_box_size"
+        android:layout_height="@dimen/cipher_preview_box_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/substitution_box"
+        app:layout_constraintStart_toEndOf="@id/cipher_icon"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

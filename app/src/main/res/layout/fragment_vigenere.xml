@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/arguments_fragment_height_taller"
+    tools:context=".fragments.VigenereFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:id="@+id/vigenere_settings_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/key_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/key_label"
+                android:textSize="@dimen/options_text_size"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/key_input_field"
+                android:layout_width="@dimen/key_field_width"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/key_label"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:textSize="@dimen/options_text_size"
+                android:gravity="center"
+                android:backgroundTint="@color/lighter_gray"
+                android:textColor="@color/white" />
+
+            <ImageButton
+                android:id="@+id/generate_key_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/generate_button_width"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/key_input_field"
+                android:src="@drawable/baseline_refresh_24" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vigenere_settings_layout"
+            android:layout_marginTop="@dimen/spacer_margin"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/encoding_options_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/encoding_options"
+                android:textSize="@dimen/options_text_size"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/analyze_frequency_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/analyze_frequency"
+                android:textSize="@dimen/options_text_size"
+                android:textColor="@color/white"
+                android:layout_toEndOf="@id/encoding_options_button"
+                android:layout_marginStart="@dimen/big_spacer_margin" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

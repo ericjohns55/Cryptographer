@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/macro_editor_size"
+    android:layout_height="@dimen/macro_editor_size">
+
+    <TextView
+        android:id="@+id/dialog_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:text="@string/cipher_type"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true" />
+
+
+    <RadioGroup
+        android:id="@+id/cipher_type_selector_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_spacer_margin"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/dialog_title_label">
+
+        <RadioButton
+            android:id="@+id/radio_caesar"
+            android:tag="@string/cipher_caesar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_caesar"
+            android:textSize="@dimen/radio_text_size_small"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_subsitution"
+            android:tag="@string/cipher_substitution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_substitution"
+            android:textSize="@dimen/radio_text_size_small"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_vigenere"
+            android:tag="@string/cipher_vigenere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_vigenere"
+            android:textSize="@dimen/radio_text_size_small"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_atbash"
+            android:tag="@string/cipher_atbash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_atbash"
+            android:textSize="@dimen/radio_text_size_small"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/required_arguments_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:text="@string/required_arguments"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/cipher_type_selector_group" />
+
+    <RelativeLayout
+        android:id="@+id/required_arguments_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/required_arguments_label">
+
+        <TextView
+            android:id="@+id/required_arguments_descriptor_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Placeholder: "
+            android:textSize="@dimen/options_text_size_small"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/required_arguments_input_field"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/required_arguments_descriptor_label"
+            android:layout_centerVertical="true"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890"
+            android:tag="@string/cipher_caesar"
+            android:text="@string/placeholder"
+            android:textSize="@dimen/edit_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/required_arguments_generate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/generate_button_width"
+            android:tag="@string/cipher_caesar"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/required_arguments_input_field"
+            android:src="@drawable/baseline_refresh_24" />
+
+        <TextView
+            android:id="@+id/no_required_args_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_extra_args"
+            android:textSize="@dimen/options_text_size_small"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/valid_input_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valid Input?"
+        android:textSize="@dimen/options_text_size_tiny"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/required_arguments_layout" />
+
+    <TextView
+        android:id="@+id/optional_arguments_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:text="@string/optional_arguments"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/valid_input_label" />
+
+    <RelativeLayout
+        android:id="@+id/text_case_spinner_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/optional_arguments_label">
+
+        <TextView
+            android:id="@+id/text_case_spinner_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/output_text_case"
+            android:textSize="@dimen/options_text_size_small"
+            android:textColor="@color/white" />
+
+        <Spinner
+            android:id="@+id/text_case_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/text_cases"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/text_case_spinner_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/characters_spinner_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_spacer_margin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/text_case_spinner_layout">
+
+        <TextView
+            android:id="@+id/characters_spinner_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/editor_characters"
+            android:textSize="@dimen/options_text_size_small"
+            android:textColor="@color/white" />
+
+        <Spinner
+            android:id="@+id/characters_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/character_options"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/characters_spinner_label" />
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/encode_numbers_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_spacer_margin"
+        android:text="@string/encode_numbers"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_text_size_small"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/characters_spinner_layout" />
+
+    <TextView
+        android:id="@+id/numbers_disallowed_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_spacer_margin"
+        android:text="@string/numbers_disallowed_editor"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_text_size_small"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_below="@id/characters_spinner_layout" />
+
+</RelativeLayout>

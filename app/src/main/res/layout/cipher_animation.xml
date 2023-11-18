@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/cipher_preview_box_size"
+    android:layout_height="@dimen/cipher_preview_box_size">
+
+    <TextView
+        android:id="@+id/info_cipher_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:textColor="@color/white"
+        android:text="@string/placeholder"
+        android:textSize="@dimen/header_text_size" />
+
+    <TextView
+        android:id="@+id/info_cipher_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_cipher_title"
+        android:layout_centerHorizontal="true"
+        android:text="@string/placeholder"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_text_size_small" />
+
+    <EditText
+        android:id="@+id/info_cipher_input"
+        android:layout_width="@dimen/cipher_preview_edittext_length"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:textIsSelectable="true"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:layout_below="@id/info_cipher_desc"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/cryptography"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:inputType="none" />
+
+    <TextView
+        android:id="@+id/cipher_arrows"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_cipher_input"
+        android:layout_centerHorizontal="true"
+        android:text="@string/arrows"
+        android:textColor="@color/white"
+        android:textSize="@dimen/options_text_size_small" />
+
+    <EditText
+        android:id="@+id/info_cipher_output"
+        android:layout_width="@dimen/cipher_preview_edittext_length"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:textIsSelectable="true"
+        android:layout_below="@id/cipher_arrows"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/cryptography"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:inputType="none" />
+</RelativeLayout>

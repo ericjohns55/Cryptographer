@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CipherActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lighter_gray"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cipher_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cipher_activity_title"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/back_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/cipher_selector_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/radio_group_margins"
+        app:layout_constraintTop_toBottomOf="@id/cipher_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/radio_caesar"
+            android:tag="@string/cipher_caesar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_caesar"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_subsitution"
+            android:tag="@string/cipher_substitution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_substitution"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_vigenere"
+            android:tag="@string/cipher_vigenere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_vigenere"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+
+        <RadioButton
+            android:id="@+id/radio_atbash"
+            android:tag="@string/cipher_atbash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cipher_atbash"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/radio_group_margins" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_line_height"
+        android:background="@color/lighter_gray"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_selector_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/divider_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

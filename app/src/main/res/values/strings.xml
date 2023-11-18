@@ -1,0 +1,320 @@
+<resources>
+    <string name="app_name">Cryptographer</string>
+
+    <!-- General Strings -->
+    <string name="placeholder">Placeholder</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas integer eget aliquet nibh praesent. Consectetur adipiscing elit duis tristique. Purus sit amet luctus venenatis lectus magna fringilla. Tempor orci eu lobortis elementum nibh tellus molestie. Quis lectus nulla at volutpat diam ut venenatis tellus. Quis auctor elit sed vulputate mi sit. Tortor at auctor urna nunc. Dolor morbi non arcu risus quis varius quam. Id faucibus nisl tincidunt eget nullam. Et egestas quis ipsum suspendisse ultrices. Lacus vel facilisis volutpat est velit egestas dui. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Nisi porta lorem mollis aliquam ut. Nec tincidunt praesent semper feugiat nibh sed pulvinar. Cras sed felis eget velit aliquet sagittis id consectetur purus. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Bibendum enim facilisis gravida neque convallis a. Ultrices vitae auctor eu augue. Egestas purus viverra accumsan in nisl nisi scelerisque eu.</string>
+
+
+    <!-- Strings for the Menus/Toolbars -->
+    <string name="back">Back</string>
+    <string name="settings">Settings</string>
+
+    <!-- Strings for the SettingsActivity -->
+    <string name="attributions">Icon Attributions</string>
+    <string name="settings_macro_label"><u>Macro Settings</u></string>
+    <string name="main_icon_credits">Cryptography icons created by Freepik - Flaticon</string>
+    <string name="cipher_icon_credits">Cipher icons created by Pixelmeetup - Flaticon</string>
+    <string name="image_processing_icon_credits">Image processing icons created by Freepik - Flaticon</string>
+    <string name="qr_icon_credits">Scanner icons created by Freepik - Flaticon</string>
+    <string name="delete_all_macros">Delete All Macros</string>
+    <string name="macro_deletion_confirm">Are you sure you want to delete all
+        macros?\n\nThe following macros will be irreversibly deleted: %s</string>
+    <string name="all_macro_data_cleared">All macro data has been deleted.</string>
+
+    <!-- Strings for the ListView -->
+    <string name="cipher_list_text">Encode / Decode Messages</string>
+    <string name="images_list_text">Process Images</string>
+    <string name="qr_codes_list_text">Scan QR Codes</string>
+    <string name="macros_list_text">Manage Macros</string>
+
+    <!-- String for the Bundle passed to CipherActivity -->
+    <string name="list_view_selected">list_view_selected</string>
+    <string name="bundle_cipher">bundle_cipher</string>
+    <string name="cipher_args_fragment">cipher_args_fragment</string>
+
+    <!-- Cipher Activity Strings -->
+    <string name="cipher_activity_title">Ciphers</string>
+    <string name="cipher_caesar">Caesar</string>
+    <string name="cipher_substitution">Substitution</string>
+    <string name="cipher_vigenere">Vigenère</string>
+    <string name="cipher_atbash">Atbash</string>
+
+    <string name="encode_placeholder_text">Place your plaintext here…</string>
+    <string name="decode_placeholder_text">Place your ciphertext here…</string>
+    <string name="no_input_provided">No input was provided.</string>
+
+    <string name="encode">Encode</string>
+    <string name="decode">Decode</string>
+
+    <string name="encoding_options"><u>Encoding Options</u></string>
+    <string name="copy_result_to_input"><u>Copy Result into Input Field</u></string>
+    <string name="clear_fields"><u>Clear Encoder Inputs</u></string>
+
+    <string name="output_hint">Your output text will be here after inputting the
+        necessary arguments by pressing "encode" or "decode"</string>
+
+    <string name="output_hint_caesar">\n\nIf you select decode, it will rotate in
+        the opposite direction provided.</string>
+
+    <string name="analyze_frequency"><u>Analyze Frequency of Input</u></string>
+
+    <!-- Cipher Information Fragment -->
+    <string name="cipher_selection_message"><i>Select a cipher to enter the encoder</i></string>
+    <string name="descript_caesar_short">&lt;i&gt;Rotate the Alphabet&lt;/i&gt;</string>
+    <string name="descript_substitution_short">&lt;i&gt;Substitute the
+        Alphabet&lt;/i&gt;</string>
+    <string name="descript_vigenere_short">&lt;i&gt;Encrypt with Secret Key&lt;/i&gt;</string>
+    <string name="descript_atbash_short">&lt;i&gt;Invert the Alphabet&lt;/i&gt;</string>
+    <string name="cryptography">cryptography</string>
+    <string name="arrows">↓\t\t↓\t\t↓</string>
+
+    <!-- Caesar Cipher Fragment -->
+    <string name="cipher_title_caesar"><u>Caesar Cipher</u></string>
+    <string name="cipher_description_caesar">The Caesar cipher, also known as the shift
+        cipher, is one of simplest encryption schemes. It works by substituting each
+        letter in the plaintext with another letter X fixed positions down the alphabet.
+        For example, if you rotated \'A\' by 2, it would become \'C\'. The alphabet also
+        wraps around, so if you shift a \'Z\' by 2, it will become a B. The technique
+        utilized to decode a Caesar cipher is to perform the encoding rotation again but
+        in the opposite direction. If you shift by 3 to encode, you would have to shift by
+        -3 to decode. Due to the simplicity of this encryption scheme, it provides
+        basically no security as it can be easily cracked using a brute force attack.</string>
+
+    <string name="rotate_amount">Rotate Amount: </string>
+    <string name="encode_fail_no_rotate_provided">You must either provide a
+        rotate amount or generate one before running the cipher.\n\nThe rotate
+        amount can be any whole positive or negative numbers.</string>
+
+    <!-- Substitution Cipher Fragment -->
+    <string name="cipher_title_substitution"><u>Substitution Cipher</u></string>
+    <string name="cipher_description_substitution">A substitution cipher is an
+        encryption method in which each letter in the plaintext is matched
+        with a different letter in the cipher text. It requires an \"alphabet\"
+        to be created, where the first letter corresponds to A, the second one to
+        B, and so on. If your alphabet provided was CAT… then all A\'s would map to
+        C, all B\'s to A, and all C\'s to T. No two letters in the plaintext can map to
+        the same letter in the ciphertext, so each letter must be used only once while
+        creating the alphabet. While substitution ciphers are more difficult to brute
+        force, one can crack them by performing Frequency Analysis to study the
+        frequency of letters in a ciphertext and attempt to map them to letters in the
+        real English alphabet.
+    </string>
+    <string name="freq_analysis_fail_no_input">You must provide an input string
+        to perform frequency analysis.</string>
+
+    <string name="alphabet_label">Alphabet: </string>
+    <string name="encode_fail_bad_alphabet">Your must provide a valid alphabet
+        containing all 26 letters or generate one before running the cipher.</string>
+
+    <!-- Vigenere Cipher Fragment -->
+    <string name="cipher_title_vigenere"><u>Vigenère Cipher</u></string>
+    <string name="cipher_description_vigenere">The Vigenère cipher is an
+        encryption scheme in which each letter of the plaintext is encoded with a
+        different rotating Caesar cipher. The provided key provides the rotate
+        amounts, and is repeated until the length of the plaintext. If your key
+        was BAG, it would rotate the first character by 1, the second one by 0, and
+        the third one by 6 (then repeat). Please note that rotating by A is the same
+        thing as rotating by 0, as that is the 0th index of the alphabet. Vigenère
+        ciphers are very difficult to crack without knowing the key. However, if you
+        know the key length, you could split the letters into groups based on their
+        indices and perform Frequency Analysis on each group to try to determine the key.
+    </string>
+
+    <string name="key_label">Key:</string>
+    <string name="encode_fail_bad_key">You must provide a valid key (of any
+        length) or generate one before running the cipher</string>
+
+    <!-- Atbash Cipher Fragment -->
+    <string name="cipher_title_atbash"><u>Atbash Cipher</u></string>
+    <string name="cipher_description_atbash">An Atbash cipher is another simple
+        encryption method that is based off of a substitution cipher. It works by
+        taking the alphabet and mapping the inverse to itself so the first letter
+        becomes the last letter. In this cipher, A\'s become Z\'s, and B\'s become
+        Y\'s. This scheme is very simple to decode as you just perform the same
+        algorithm again to reverse the text back to the original. Due to the simplicity
+        of this encryption scheme it provides practically no communications security
+        and can be cracked almost instantly upon recognizing it was used.
+    </string>
+
+    <!-- Frequency Analysis Activity -->
+    <string name="frequency_analysis">Frequency Analysis</string>
+    <string name="input_string">Input String:</string>
+    <string name="freq_analysis_input_bundle">input_bundle</string>
+    <string name="freq_analysis_cipher_bundle">cipher_bundle</string>
+    <string name="freq_analysis_alphabet_bundle">alphabet_bundle</string>
+    <string name="freq_analysis_key_bundle">key_bundle</string>
+    <string name="freq_analysis_input_field">INPUT:</string>
+    <string name="freq_analysis_transfer_created_alphabet"><u>Transfer Created Alphabet to
+        Encoder</u></string>
+    <string name="freq_analysis_transfer_created_key"><u>Transfer Created Key to
+        Encoder</u></string>
+    <string name="graph_hint"><i>The starred letters correspond to the average
+        frequency of letters in English text.\nThe non-starred letters correspond
+        to the relative frequency of letters in the input string.</i></string>
+    <string name="graph_hint_input"><i>Relative Frequency of Input</i></string>
+    <string name="graph_hint_english"><i>Relative Frequency of English Language</i></string>
+    <string name="freq_analysis_cannot_return_invalid">This is not a valid
+        alphabet. Did you make sure that every letter was only used once?\n\nYou
+        can still return to the previous screen without transferring your created
+        alphabet by clicking the back arrow in the top right.</string>
+
+    <string name="substitution_cracker"><u>Substitution Cracker</u></string>
+    <string name="vigenere_cracker"><u>Vigenère Cracker</u></string>
+    <string name="vigenere_test_key">Test Key:</string>
+    <string name="vigenere_group_size">Group Size:</string>
+    <string name="vigenere_group_number">Group Number:</string>
+    <string name="vigenere_update_graph">Update Graph</string>
+
+    <string name="invalid_values_zero">The group size and group length must be
+        greater than zero.</string>
+    <string name="invalid_group_size_high">The group size cannot be larger than
+        the length of the input text.</string>
+    <string name="invalid_group_num_high">The group number cannot be larger than
+        the group size.</string>
+    <string name="cannot_return_key_length_zero">There is no key to return!</string>
+
+    <!-- Encoding Options Dialog Strings -->
+    <string name="flags_dialog_title">Encoding Options</string>
+    <string name="flags_dialog_text_case"><u>Output Text Case</u></string>
+    <string name="flags_dialog_preserve_case">Preserve Case</string>
+    <string name="flags_dialog_all_upper">All Uppercase</string>
+    <string name="flags_dialog_all_lower">All Lowercase</string>
+    <string name="flags_dialog_chars"><u>Characters</u></string>
+    <string name="flags_dialog_preserve_chars">Preserve Extra Characters</string>
+    <string name="flags_dialog_strip_chars">Strip Extra Characters</string>
+    <string name="flags_dialog_numbers"><u>Numbers</u></string>
+    <string name="flags_dialog_number_checkbox">Encode Numbers</string>
+    <string name="flags_dialog_numbers_disallowed"><i>Numbers cannot be encoded for
+        this cipher.\nThey will be stripped/preserved with other characters</i></string>
+    <string name="dialog_apply">Apply</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string name="dialog_select">Select</string>
+
+    <!-- Image Processing Activity Strings -->
+    <string name="image_processor">Image Processor</string>
+    <string name="image_selection_options"><u>Image Selection Options</u></string>
+    <string name="take_picture">Take Picture</string>
+    <string name="select_picture">Choose Picture</string>
+    <string name="encode_image">Encode Image</string>
+    <string name="decode_image">Decode Image</string>
+    <string name="run_encoder">Run Encoder</string>
+    <string name="run_decoder">Run Decoder</string>
+    <string name="processor_options"><u>Processor Options</u></string>
+    <string name="download_image">Download Image</string>
+    <string name="convert_image">Convert to Base 64</string>
+    <string name="previous_input">Use Previous Cipher Results as Input</string>
+    <string name="decode_output">Decode Output with Macro</string>
+    <string name="encoding_channel">&lt;u&gt;Encoding Channel:&lt;/u&gt;</string>
+    <string name="decoding_channel">&lt;u&gt;Decoding Channel:&lt;/u&gt;</string>
+
+    <string-array name="color_channels">
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+    </string-array>
+
+    <string name="couldnt_save">Could not save file.</string>
+    <string name="could_save">Successfully saved!</string>
+
+    <string name="encode_successful">Successfully encoded!</string>
+    <string name="decode_successful">Successfully decoded!</string>
+    <string name="decode_empty_text">No encoded message found.</string>
+    <string name="couldnt_load_picture">Could not load picture from gallery.</string>
+
+    <string name="null_picture">You must either take or pick a picture first.</string>
+
+    <string name="encode_hint">Enter text here to encode into the image.</string>
+    <string name="decode_hint">Your decoded text will be here after running the
+        Decoder</string>
+
+    <!-- QR Codes Activity -->
+    <string name="qr_title">QR Code Scanner</string>
+    <string name="scan_qrcode">Scan QR Code</string>
+    <string name="generate_qr_code">Generate QR Code</string>
+    <string name="save_qr_code">Save QR Code</string>
+    <string name="qr_edittext_hint">Your decoded text will be here after scanning a
+        QR code.\n\nIf you are generating a QR code, enter your input text here.</string>
+    <string name="qr_edittext_decode_hint">Your decoded text will be here after
+        scanning a QR code.</string>
+    <string name="scanner_results">Scanner Results</string>
+    <string name="qr_previous_input"><u>Use Previous Cipher Results as Input</u></string>
+    <string name="show_scanned_code">Show Scanned QR Code After Scan</string>
+    <string name="code_generation_failed">Failed to generate QR code.</string>
+    <string name="no_barcode_to_save">No QR code was generated to save!</string>
+
+    <!-- Macros Activity -->
+    <string name="macros_title">Macros</string>
+    <string name="macro_name_hint">Enter your macro name here.</string>
+    <string name="new_macro">Create New Macro</string>
+    <string name="edit_macro_item">Edit Macro Item</string>
+    <string name="move_macro_item_up">Move Item Up</string>
+    <string name="move_macro_item_down">Move Item Down</string>
+    <string name="delete_macro_item">Delete Macro Item</string>
+    <string name="add_macro_item">Add Macro Item</string>
+    <string name="macro_name">Macro Name:</string>
+    <string name="macro_item_not_selected">You must select a macro item first.</string>
+    <string name="empty_listview"><i>There are currently no macro items.\n\nClick \"Add
+        Macro Item\" to add some.</i></string>
+
+    <string name="create_macro">Create</string>
+    <string name="load_macro">Load</string>
+    <string name="delete_macro">Delete</string>
+    <string name="save_macro">Save</string>
+
+    <string name="macro_processor">Macro Processor</string>
+    <string name="encode_with_macro">Encode with Macro</string>
+    <string name="decode_with_macro">Decode with Macro</string>
+    <string name="swap">←Swap→</string>
+    <string name="input_macro_hint">Place your input text here for
+        encoding/decoding</string>
+    <string name="output_macro_hint">Your output text will be here after encoding
+        or decoding with a macro</string>
+    <string name="paste_fail">No previous output could be found.</string>
+    <string name="no_output">No output was found.</string>
+
+    <string name="example_macro">Example Macro</string>
+    <string name="macro_selector_label">Please select a macro:</string>
+    <string name="no_macros_to_load">No saved macros exist to load!</string>
+    <string name="couldnt_save_no_name">You cannot save a macro without a name!</string>
+    <string name="cannot_delete_never_saved">A macro with this name was never
+        saved!</string>
+    <string name="delete_macro_message">Are you sure you want to delete macro
+        \"%s\"?</string>
+    <string name="confirm_overwrite_macro">A macro with this name already exists.
+    Are you sure you want to overwrite it?</string>
+    <string name="bundle_macro_input">bundle_macro_input</string>
+
+    <!-- Macro Item Editor -->
+    <string name="macro_editor">Macro Editor</string>
+    <string name="macro_item_editor">Macro Item Editor</string>
+    <string name="cipher_type"><u>Cipher Type</u></string>
+    <string name="required_arguments"><u>Required Arguments</u></string>
+    <string name="optional_arguments"><u>Optional Arguments</u></string>
+    <string name="output_text_case"><u>Output Text Case:</u></string>
+    <string-array name="text_cases">
+        <item>Preserve Case</item>
+        <item>All Uppercase</item>
+        <item>All Lowercase</item>
+    </string-array>
+    <string name="editor_characters"><u>Characters:</u></string>
+    <string-array name="character_options">
+        <item>Preserve Extra Characters</item>
+        <item>Strip Characters</item>
+    </string-array>
+    <string name="encode_numbers">Encode Numbers</string>
+    <string name="numbers_disallowed_editor"><i>This cipher cannot encode numbers.</i></string>
+    <string name="no_extra_args"><i>This cipher does not require additional arguments.</i></string>
+    <string name="valid_args_caesar">Rotate amount is valid!</string>
+    <string name="valid_args_substitution">Alphabet is valid!</string>
+    <string name="valid_args_vigenere">Key is valid!</string>
+    <string name="invalid_args_caesar">This rotate amount is not valid.</string>
+    <string name="invalid_args_substitution">This alphabet is not valid.</string>
+    <string name="invalid_args_vigenere">This key is not valid.</string>
+    <string name="creation_fail_bad_args">Could not add macro item: invalid
+        arguments provided.</string>
+    <string name="shared_prefs_macros">shared_prefs_macros</string>
+</resources>

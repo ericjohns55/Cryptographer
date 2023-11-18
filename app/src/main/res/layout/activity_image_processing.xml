@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageProcessingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lighter_gray"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/image_processor_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/image_processor"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/back_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/processor_image_view"
+        android:layout_width="@dimen/image_processor_view_size"
+        android:layout_height="@dimen/image_processor_view_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:src="@drawable/image_processing"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/image_processor_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/picture_options_layout" />
+
+    <RelativeLayout
+        android:id="@+id/picture_options_layout"
+        android:layout_width="@dimen/image_processor_view_size"
+        android:layout_height="@dimen/image_processor_view_size"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/image_processor_title"
+        app:layout_constraintStart_toEndOf="@id/processor_image_view"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/image_selection_options_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/image_selection_options"
+                android:textSize="@dimen/label_text_size"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/takePictureButton"
+                android:layout_width="@dimen/image_processor_button_width"
+                android:layout_height="@dimen/image_processor_button_height"
+                android:layout_below="@id/image_selection_options_label"
+                android:layout_marginTop="@dimen/spacer_margin"
+                android:text="@string/take_picture"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"
+                android:onClick="takePicture"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:id="@+id/choosePictureButton"
+                android:layout_width="@dimen/image_processor_button_width"
+                android:layout_height="@dimen/image_processor_button_height"
+                android:layout_below="@id/takePictureButton"
+                android:text="@string/select_picture"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size"
+                android:onClick="choosePicture"
+                android:layout_marginTop="@dimen/spacer_margin"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/encode_decode_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/picture_options_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/radio_encode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="@string/encode_image"
+            android:text="@string/encode_image"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/spacer_margin"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radio_decode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="@string/decode_image"
+            android:text="@string/decode_image"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:id="@+id/spinner_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/encode_decode_radio_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/spinner_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/encoding_channel"
+            android:textSize="@dimen/radio_text_size"
+            android:textColor="@color/white" />
+
+        <Spinner
+            android:id="@+id/color_channel_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/color_channels"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/spinner_label" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/image_processor_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:scrollbars="vertical"
+        android:gravity="top|start"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lighter_gray"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/spinner_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/run_processor_button"
+        android:layout_width="@dimen/image_processor_button_width_wide"
+        android:layout_height="@dimen/image_processor_button_height"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:text="@string/run_encoder"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:onClick="processImage"
+        app:layout_constraintTop_toBottomOf="@id/image_processor_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_line_height"
+        android:background="@color/lighter_gray"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/run_processor_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/processor_options_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/processor_options"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/divider_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/utilize_input_output_button"
+        android:layout_width="@dimen/image_processor_button_width_wide"
+        android:layout_height="@dimen/image_processor_button_height"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:text="@string/previous_input"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:onClick="inputOutputButton"
+        android:tag="@string/encode"
+        app:layout_constraintTop_toBottomOf="@id/processor_options_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/download_image_button"
+        android:layout_width="@dimen/image_processor_button_width"
+        android:layout_height="@dimen/image_processor_button_height"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:text="@string/download_image"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        android:onClick="downloadPicture"
+        app:layout_constraintTop_toBottomOf="@id/utilize_input_output_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

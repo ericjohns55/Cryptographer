@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SubstitutionCrackerFragment">
+    
+    <TextView
+        android:id="@+id/sub_cracker_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/substitution_cracker"
+        android:textSize="@dimen/label_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TableLayout
+        android:id="@+id/alphabet_table"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alphabet_cracker_table_height"
+        android:stretchColumns="*"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/sub_cracker_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/transfer_alphabet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freq_analysis_transfer_created_alphabet"
+        android:textSize="@dimen/options_text_size_small"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/alphabet_table"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/substitution_cracker_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:editable="false"
+        android:textIsSelectable="true"
+        android:scrollbars="vertical"
+        android:gravity="top|start"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lighter_gray"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/transfer_alphabet_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.VigenereCrackerFragment">
+
+
+    <TextView
+        android:id="@+id/vigenere_cracker_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vigenere_cracker"
+        android:textSize="@dimen/label_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/vigenere_groups_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/vigenere_cracker_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/group_size_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/vigenere_group_size"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/group_size_input"
+            android:layout_width="@dimen/vigenere_cracker_group_length"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/group_size_label"
+            android:layout_marginEnd="@dimen/big_spacer_margin"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:textSize="@dimen/options_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/group_num_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/group_size_input"
+            android:text="@string/vigenere_group_number"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/group_num_input"
+            android:layout_width="@dimen/vigenere_cracker_group_length"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/group_num_label"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:textSize="@dimen/options_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/update_graph"
+        android:layout_width="@dimen/vigenere_update_graph_button_length"
+        android:layout_height="wrap_content"
+        android:text="@string/vigenere_update_graph"
+        android:textAllCaps="false"
+        android:textSize="@dimen/options_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/vigenere_groups_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <RelativeLayout
+        android:id="@+id/vigenere_test_key_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/update_graph"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/key_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/vigenere_test_key"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/key_tester_field"
+            android:layout_width="@dimen/key_field_width"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/key_label"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:textSize="@dimen/options_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/transfer_key_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/freq_analysis_transfer_created_key"
+        android:textSize="@dimen/options_text_size_small"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/vigenere_test_key_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/vigenere_cracker_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:editable="false"
+        android:textIsSelectable="true"
+        android:scrollbars="vertical"
+        android:gravity="top|start"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lighter_gray"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/transfer_key_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

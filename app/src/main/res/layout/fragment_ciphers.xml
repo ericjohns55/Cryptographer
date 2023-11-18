@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CiphersFragment">
+
+    <TextView
+        android:id="@+id/cipher_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cipher_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/description_text_size"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cipher_name"/>
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_line_height"
+        android:background="@color/lighter_gray"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/cipher_plaintext_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:scrollbars="vertical"
+        android:gravity="top|start"
+        android:hint="@string/encode_placeholder_text"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lighter_gray"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/divider_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/cipher_arguments_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_plaintext_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/cipher_encode_button"
+        android:layout_width="@dimen/encode_decode_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/encode"
+        android:tag="@string/encode"
+        android:textSize="@dimen/button_text_size_large"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_arguments_fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cipher_decode_button" />
+
+    <Button
+        android:id="@+id/cipher_decode_button"
+        android:layout_width="@dimen/encode_decode_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/decode"
+        android:tag="@string/decode"
+        android:textSize="@dimen/button_text_size_large"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_arguments_fragment"
+        app:layout_constraintStart_toEndOf="@id/cipher_encode_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/cipher_ciphertext_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:editable="false"
+        android:textIsSelectable="true"
+        android:scrollbars="vertical"
+        android:gravity="top|start"
+        android:hint="@string/output_hint"
+        android:textSize="@dimen/edit_text_size"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lighter_gray"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_marginStart="@dimen/spacer_margin"
+        android:layout_marginEnd="@dimen/spacer_margin"
+        app:layout_constraintTop_toBottomOf="@id/cipher_encode_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/cipher_reset_args"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_fields"
+        android:textSize="@dimen/options_text_size_small"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cipher_copy_result"
+        app:layout_constraintTop_toBottomOf="@id/cipher_ciphertext_output" />
+
+    <TextView
+        android:id="@+id/cipher_copy_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copy_result_to_input"
+        android:textSize="@dimen/options_text_size_small"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@id/cipher_reset_args"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cipher_ciphertext_output" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

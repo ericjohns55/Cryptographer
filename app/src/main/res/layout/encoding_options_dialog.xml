@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/options_dialog_size"
+    android:layout_height="@dimen/options_dialog_size">
+
+    <TextView
+        android:id="@+id/dialog_text_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacer_margin"
+        android:text="@string/flags_dialog_text_case"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:id="@+id/dialog_text_cases_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_text_header"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/preserve_case_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flags_dialog_preserve_case"
+            android:tag="PRESERVE_CASE"
+            android:textSize="@dimen/options_dialog_labels"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/all_upper_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flags_dialog_all_upper"
+            android:tag="ALL_UPPER"
+            android:textSize="@dimen/options_dialog_labels" />
+
+        <RadioButton
+            android:id="@+id/all_lower_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flags_dialog_all_lower"
+            android:tag="ALL_LOWER"
+            android:textSize="@dimen/options_dialog_labels" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/dialog_chars_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flags_dialog_chars"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/dialog_text_cases_group" />
+
+    <RadioGroup
+        android:id="@+id/dialog_chars_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_chars_header"
+        android:layout_marginBottom="@dimen/spacer_margin"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:id="@+id/preserve_chars_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flags_dialog_preserve_chars"
+            android:tag="@string/flags_dialog_preserve_chars"
+            android:textSize="@dimen/options_dialog_labels"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/strip_chars_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/flags_dialog_strip_chars"
+            android:tag="@string/flags_dialog_strip_chars"
+            android:textSize="@dimen/options_dialog_labels" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/dialog_numbers_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flags_dialog_numbers"
+        android:textSize="@dimen/options_dialog_headers"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/dialog_chars_group" />
+
+    <CheckBox
+        android:id="@+id/encode_numbers_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_numbers_header"
+        android:layout_centerHorizontal="true"
+        android:text="@string/flags_dialog_number_checkbox" />
+
+    <TextView
+        android:id="@+id/numbers_disallowed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flags_dialog_numbers_disallowed"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_below="@id/dialog_numbers_header"/>
+</RelativeLayout>

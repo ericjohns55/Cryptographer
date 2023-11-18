@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/arguments_fragment_height"
+    tools:context=".fragments.CaesarFragment">
+
+    <RelativeLayout
+        android:id="@+id/caesar_settings_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_margin"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/rotate_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/rotate_amount"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/rotate_input_field"
+            android:layout_width="@dimen/rotate_field_width"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/rotate_label"
+            android:inputType="numberDecimal|numberSigned"
+            android:textSize="@dimen/options_text_size"
+            android:gravity="center"
+            android:backgroundTint="@color/lighter_gray"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/generate_rotate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/generate_button_width"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/rotate_input_field"
+            android:src="@drawable/baseline_refresh_24" />
+
+        <TextView
+            android:id="@+id/encoding_options_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/encoding_options"
+            android:textSize="@dimen/options_text_size"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/generate_rotate_button"
+            android:layout_marginStart="@dimen/big_spacer_margin"
+            android:layout_marginTop="@dimen/spacer_margin" />
+    </RelativeLayout>
+</RelativeLayout>
