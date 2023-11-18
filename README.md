@@ -21,4 +21,5 @@ An android app developed for CMSC 345 (Mobile App Development)
 ## Video Report
 Part of this assignment was to make a video report discussing our implementations, design ideas, and to give a demonstration of the app.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HvE1qe-38cI?si=xx4tmxllPp-x0VOx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Click on the image below to watch it:
+[![Cryptographer Video Report](https://imgur.com/f4GIc8z.png)](https://youtu.be/HvE1qe-38cI)
